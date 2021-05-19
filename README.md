@@ -12,10 +12,10 @@
 
 ```
     val kksPlayerServiceParamData = PaaSParameter(
-        hostUrl = "https://${HOST_NAME}/v1",
-        contentId = "${MEDIA_ID}",
-        contentType = ContentType.Videos,
-        accessToken = "${TOKEN}",
+        hostUrl = "${VIDEO_HOST_SERVER_URL_PATH}",
+        contentId = "${VIDEO_CONTENT_ID}",
+        contentType = VIDEO_CONTENT_TYPE,
+        accessToken = "${ACCRSS_TOKEN}",
         deviceId = InjectorUtils.provideDeviceId(context),
     )
 
@@ -34,7 +34,7 @@ More description about parameters:
 
 - `hostUrl`: The host url, the player will auto verify that the url is available or not.
 - `contentId`: The id is unique and it is used to fetch content data and related resources
-- `contentType`: An enum value that includes Video, Live and Offline
+- `contentType`: An enum(ContentType) value that includes Videos, Lives and Offline
 - `accessToken`: Authorization token
 - `deviceId`: Settings.Secure.ANDROID_ID
 
