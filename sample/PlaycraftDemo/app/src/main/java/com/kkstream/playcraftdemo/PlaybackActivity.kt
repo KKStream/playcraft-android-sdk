@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.viewModels
+import com.kkstream.android.paas.player.common.PaaSConfig
 import com.kkstream.android.paas.player.common.PaaSController
 import com.kkstream.android.paas.player.common.PaaSProvider
 import com.kkstream.android.paas.player.common.callback.DialogEventListener
@@ -33,6 +34,9 @@ class PlaybackActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPlaybackBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // set config
+        PaaSConfig.setShowAutoPlay(this, false)
 
         try {
             paasProvider = binding.kksPlayerServiceView.setup(
