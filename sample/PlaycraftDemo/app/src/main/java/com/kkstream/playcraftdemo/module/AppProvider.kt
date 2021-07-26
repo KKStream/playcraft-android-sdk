@@ -27,6 +27,7 @@ object AppProvider {
                 contentType = ContentType.Videos,
                 accessToken = "${TOKEN}",
                 deviceId = InjectorUtils.provideDeviceId(context),
+                stateEventListener = SampleStateEventListener(),
         )
     }
 }
