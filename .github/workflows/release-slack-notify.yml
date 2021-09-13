@@ -1,0 +1,20 @@
+name: Release Slack Notification
+on:
+  push:
+    tags:        
+      - '*' 
+jobs:
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+    - run: echo "RELEASE_DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+    - name: Slack Notification
+      uses: Ilshidur/action-slack@2.1.0
+      env:
+        RELEASE_DATE: ${{ env.RELEASE_DATE }}
+        RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      with:
+        args: "A new version of `{{ GITHUB_REPOSITORY }}` has been released! :tada:\n Current version is *#{{ RELEASE_VERSION }}* \n\n <{{ GITHUB_SERVER_URL }}/{{ GITHUB_REPOSITORY }}/releases/tag/{{ RELEASE_VERSION }}|*{{ RELEASE_VERSION }}*> (*{{ RELEASE_DATE }}*)"
