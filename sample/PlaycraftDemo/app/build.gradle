@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.kkstream.playcraftdemo"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -51,15 +51,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // Player SDK
-    implementation files('libs/kks-playcraft-daas-1.1.0.aar')
-    implementation files('libs/kks-playcraft-paas-1.1.0.aar')
-    implementation files('libs/kksplayer-2.1.6.1.aar')
-    implementation files('libs/kksplayer-kkdrm-2.1.6.1.aar')
-    implementation files('libs/kksplayer-library-core-2.1.6.1.aar')
-    implementation files('libs/kksplayer-library-dash-2.1.6.1.aar')
-    implementation files('libs/kksplayer-library-hls-2.1.6.1.aar')
-    implementation files('libs/kksplayer-library-ui-2.1.6.1.aar')
-    implementation files('libs/kks-network-1.0.0.aar')
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
 
     // Player SDK dependency
     implementation "com.google.android.gms:play-services-cast-framework:$cast_framwork_version"
