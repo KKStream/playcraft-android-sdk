@@ -22,12 +22,16 @@ object AppProvider {
         @ApplicationContext context: Context
     ): PaaSParameter {
         return PaaSParameter(
-                hostUrl = "https://${HOST_NAME}/v1",
-                contentId = "${MEDIA_ID}",
-                contentType = ContentType.Videos,
-                accessToken = "${TOKEN}",
-                deviceId = InjectorUtils.provideDeviceId(context),
-                stateEventListener = SampleStateEventListener(),
+            hostUrl = "https://mock-playback.tfc.kkv-test.com",
+            contentId = "1",
+            contentType = ContentType.Videos,
+            accessToken = "paas5@gmail.com",
+            deviceId = InjectorUtils.provideDeviceId(context),
+            stateEventListener = SampleStateEventListener(),
+            customHeader = mapOf(
+                "X-Device-Type" to "android",
+                "PaaS-Sample-Platform-Type" to "android-streaming"
+            )
         )
     }
 }

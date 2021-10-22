@@ -1,11 +1,11 @@
 package com.kkstream.playcraftdemo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.kkstream.android.paas.player.common.PaaSConfig
 import com.kkstream.android.paas.player.common.PaaSController
 import com.kkstream.android.paas.player.common.PaaSProvider
@@ -19,14 +19,17 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PlaybackActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityPlaybackBinding
     private val viewModel: PlaybackViewModel by viewModels()
 
     private val paaSController: PaaSController?
         get() = paasProvider?.getController()
+
     private var paasProvider: PaaSProvider? = null
     private val dialogEventListener: DialogEventListener
         get() = DefaultDialogEventListener(this, binding.kksPlayerServiceView)
+
     private val menuFactory: DefaultMenuFactory
         get() = DefaultMenuFactory(binding.kksPlayerServiceView)
 
@@ -40,8 +43,8 @@ class PlaybackActivity : AppCompatActivity() {
 
         try {
             paasProvider = binding.kksPlayerServiceView.setup(
-                    paasParameter = viewModel.kksPlayerServiceParamData,
-                    lifecycle = lifecycle
+                paasParameter = viewModel.kksPlayerServiceParamData,
+                lifecycle = lifecycle
             )
         } catch (e: PaaSErrorEvent) {
             Log.e(TAG, e.getErrorMessage(this))
@@ -72,7 +75,11 @@ class PlaybackActivity : AppCompatActivity() {
     private fun createSampleMenu(): View {
         val inflater = LayoutInflater.from(this)
         val menu =
-            inflater.inflate(R.layout.widget_playback_menu_sample, binding.kksPlayerServiceView, false)
+            inflater.inflate(
+                R.layout.widget_playback_menu_sample,
+                binding.kksPlayerServiceView,
+                false
+            )
         menu.setOnClickListener {
             paaSController?.pause()
 
