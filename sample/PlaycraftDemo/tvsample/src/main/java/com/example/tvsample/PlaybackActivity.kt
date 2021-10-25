@@ -52,14 +52,14 @@ class PlaybackActivity : FragmentActivity() {
     }
 
     private fun getPaaSParameter() = PaaSParameter(
-        hostUrl = "https://mock-playback.tfc.kkv-test.com",
-        contentId = "1",
+        hostUrl = "${HOST_NAME}",
+        contentId = "${MEDIA_ID}",
         contentType = ContentType.Videos,
-        accessToken = "paas5@gmail.com",
+        accessToken = "${access_tokn}",
         deviceId = Build.MODEL,
         customHeader = mapOf(
-            "x-device-id" to "iwedia",
-            "x-device-type" to "androidtv"
+            "${HEADER_NAME_1}" to "${HEADER_VALUE_1}",
+            "${HEADER_NAME_2}" to "${HEADER_VALUE_2}",
         ),
         errorEventCallback = getErrorEventCallback(),
         /** Optional, if value is null handle by internal. */
