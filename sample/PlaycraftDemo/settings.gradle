@@ -1,2 +1,3 @@
-include ':app'
+include ':sample'
 rootProject.name = "PlaycraftDemo"
+include ':tvsample'

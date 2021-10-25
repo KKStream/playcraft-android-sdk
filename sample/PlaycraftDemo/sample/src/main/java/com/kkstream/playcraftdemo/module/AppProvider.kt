@@ -21,13 +21,19 @@ object AppProvider {
     fun providePaasParam(
         @ApplicationContext context: Context
     ): PaaSParameter {
+        // Please contact us directly if you want test mock data
         return PaaSParameter(
-                hostUrl = "https://${HOST_NAME}/v1",
-                contentId = "${MEDIA_ID}",
-                contentType = ContentType.Videos,
-                accessToken = "${TOKEN}",
-                deviceId = InjectorUtils.provideDeviceId(context),
-                stateEventListener = SampleStateEventListener(),
+            hostUrl = "${HOST_NAME}",
+            contentId = "${MEDIA_ID}",
+            contentType = ContentType.Videos,
+            accessToken = "${access_tokn}",
+            deviceId = InjectorUtils.provideDeviceId(context),
+            stateEventListener = SampleStateEventListener(),
+            // depends on your backend team's requirement
+            customHeader = mapOf(
+                "${HEADER_NAME_1}" to "${HEADER_VALUE_1}",
+                "${HEADER_NAME_2}" to "${HEADER_VALUE_2}",
+            )
         )
     }
 }
