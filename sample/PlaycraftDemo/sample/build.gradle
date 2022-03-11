@@ -51,7 +51,15 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // Player SDK
-    implementation fileTree(dir: 'libs', include: ['*.aar'])
+//    implementation fileTree(dir: 'libs', include: ['*.aar'])
+    implementation "com.kkstream.android.ottfs.network:kks-network:$kksNetworkVersion"
+    implementation "com.kkstream.android.ottfs.player:kksplayer:$kksPlayerVersion"
+    implementation "com.kkstream.android.ottfs.player:kksplayer-kkdrm:$kksPlayerVersion"
+    implementation "com.kkstream.android.ottfs.player:kksplayer-library-core:$kksPlayerVersion"
+    implementation "com.kkstream.android.ottfs.player:kksplayer-library-dash:$kksPlayerVersion"
+    implementation "com.kkstream.android.ottfs.player:kksplayer-library-ui:$kksPlayerVersion"
+    implementation "com.kkstream.android.ottfs.player:kks-playcraft-daas:1.1.32"
+    implementation "com.kkstream.android.ottfs.player:kks-playcraft-paas:1.1.32"
 
     // Player SDK dependency
     implementation "com.google.android.gms:play-services-cast-framework:$cast_framwork_version"

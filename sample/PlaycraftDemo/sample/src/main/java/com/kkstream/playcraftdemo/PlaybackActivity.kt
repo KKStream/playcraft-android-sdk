@@ -38,12 +38,9 @@ class PlaybackActivity : AppCompatActivity() {
         binding = ActivityPlaybackBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // set config
-        PaaSConfig.setShowAutoPlay(this, false)
-
         try {
             paasProvider = binding.kksPlayerServiceView.setup(
-                paasParameter = viewModel.kksPlayerServiceParamData,
+                paasBaseParameter = viewModel.kksPlayerServiceParamData,
                 lifecycle = lifecycle
             )
         } catch (e: PaaSErrorEvent) {

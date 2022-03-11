@@ -23,16 +23,17 @@ object AppProvider {
     ): PaaSParameter {
         // Please contact us directly if you want test mock data
         return PaaSParameter(
-            hostUrl = "${HOST_NAME}",
-            contentId = "${MEDIA_ID}",
+
+            hostUrl = "https://mock-playback.tfc.kkv-test.com",
+            contentId = "1",
             contentType = ContentType.Videos,
-            accessToken = "${access_tokn}",
+            accessToken = "isaacchiang",
             deviceId = InjectorUtils.provideDeviceId(context),
             stateEventListener = SampleStateEventListener(),
             // depends on your backend team's requirement
             customHeader = mapOf(
-                "${HEADER_NAME_1}" to "${HEADER_VALUE_1}",
-                "${HEADER_NAME_2}" to "${HEADER_VALUE_2}",
+                "PaaS-Sample-Platform-Type" to "androidtv",
+                "X-Device-Type" to "androidtv"
             )
         )
     }

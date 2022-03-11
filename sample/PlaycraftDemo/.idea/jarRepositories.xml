@@ -21,5 +21,15 @@
       <option name="name" value="Google" />
       <option name="url" value="https://dl.google.com/dl/android/maven2/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="https://kks-devops-assets.s3-ap-northeast-1.amazonaws.com/kks-trc/android/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven2" />
+      <option name="name" value="maven2" />
+      <option name="url" value="https://kks-devops-assets.s3-ap-northeast-1.amazonaws.com/kks-ottfs/android/libs" />
+    </remote-repository>
   </component>
 </project>
