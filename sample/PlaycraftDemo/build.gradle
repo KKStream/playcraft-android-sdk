@@ -13,8 +13,10 @@ buildscript {
         rx_android_version = '2.1.0'
         rx_kotlin_version = '2.3.0'
         androidx_room_version = '2.0.0'
-        kksPlayerVersion = '2.1.24'
+        kksPlayerVersion = '2.2.0'
         kksNetworkVersion = '1.1.1'
+        guavaVersion = '27.1-android'
+        kks_playcraft_version = '1.2.0'
     }
 
     repositories {

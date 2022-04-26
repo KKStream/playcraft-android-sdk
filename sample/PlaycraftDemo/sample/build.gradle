@@ -50,16 +50,38 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    api ('com.google.guava:guava:' + guavaVersion) {
+        // Exclude dependencies that are only used by Guava at compile time
+        // (but declared as runtime deps) [internal b/168188131].
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+        exclude group: 'org.checkerframework', module: 'checker-compat-qual'
+        exclude group: 'com.google.errorprone', module: 'error_prone_annotations'
+        exclude group: 'com.google.j2objc', module: 'j2objc-annotations'
+        exclude group: 'org.codehaus.mojo', module: 'animal-sniffer-annotations'
+    }
+
     // Player SDK
 //    implementation fileTree(dir: 'libs', include: ['*.aar'])
     implementation "com.kkstream.android.ottfs.network:kks-network:$kksNetworkVersion"
-    implementation "com.kkstream.android.ottfs.player:kksplayer:$kksPlayerVersion"
-    implementation "com.kkstream.android.ottfs.player:kksplayer-kkdrm:$kksPlayerVersion"
-    implementation "com.kkstream.android.ottfs.player:kksplayer-library-core:$kksPlayerVersion"
-    implementation "com.kkstream.android.ottfs.player:kksplayer-library-dash:$kksPlayerVersion"
-    implementation "com.kkstream.android.ottfs.player:kksplayer-library-ui:$kksPlayerVersion"
-    implementation "com.kkstream.android.ottfs.player:kks-playcraft-daas:1.1.32"
-    implementation "com.kkstream.android.ottfs.player:kks-playcraft-paas:1.1.32"
+    debugImplementation "com.kkstream.android.ottfs.player-debug:kksplayer:$kksPlayerVersion"
+    debugImplementation "com.kkstream.android.ottfs.player-debug:kksplayer-kkdrm:$kksPlayerVersion"
+    debugImplementation "com.kkstream.android.ottfs.player-debug:kksplayer-library-core:$kksPlayerVersion"
+    debugImplementation "com.kkstream.android.ottfs.player-debug:kksplayer-library-common:$kksPlayerVersion"
+    debugImplementation "com.kkstream.android.ottfs.player-debug:kksplayer-library-extractor:$kksPlayerVersion"
+    debugImplementation "com.kkstream.android.ottfs.player-debug:kksplayer-library-dash:$kksPlayerVersion"
+    debugImplementation "com.kkstream.android.ottfs.player-debug:kksplayer-library-ui:$kksPlayerVersion"
+    debugImplementation "com.kkstream.android.ottfs.player-debug:kks-playcraft-daas:$kks_playcraft_version"
+    debugImplementation "com.kkstream.android.ottfs.player-debug:kks-playcraft-paas:$kks_playcraft_version"
+
+    releaseImplementation "com.kkstream.android.ottfs.player:kksplayer:$kksPlayerVersion"
+    releaseImplementation "com.kkstream.android.ottfs.player:kksplayer-kkdrm:$kksPlayerVersion"
+    releaseImplementation "com.kkstream.android.ottfs.player:kksplayer-library-core:$kksPlayerVersion"
+    releaseImplementation "com.kkstream.android.ottfs.player:kksplayer-library-common:$kksPlayerVersion"
+    releaseImplementation "com.kkstream.android.ottfs.player:kksplayer-library-extractor:$kksPlayerVersion"
+    releaseImplementation "com.kkstream.android.ottfs.player:kksplayer-library-dash:$kksPlayerVersion"
+    releaseImplementation "com.kkstream.android.ottfs.player:kksplayer-library-ui:$kksPlayerVersion"
+    releaseImplementation "com.kkstream.android.ottfs.player:kks-playcraft-daas:$kks_playcraft_version"
+    releaseImplementation "com.kkstream.android.ottfs.player:kks-playcraft-paas:$kks_playcraft_version"
 
     // Player SDK dependency
     implementation "com.google.android.gms:play-services-cast-framework:$cast_framwork_version"
